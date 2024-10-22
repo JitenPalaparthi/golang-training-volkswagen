@@ -10,3 +10,5 @@ var (
     num2 uint16,
     ....
 )
+
+https://github.com/JitenPalaparthi/golang-training-volkswagen

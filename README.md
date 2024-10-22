@@ -73,11 +73,11 @@ go build -ldflags="-s -w"  -o demo  main.go
 
 ## keywords 
 
-- case,const,default,else,fallthrough,func,if,import, package, switch ,var
+- break,case,const,continue, default,else, fallthrough, for,func,if,import, package,range, switch ,var
 
 ## builtin functions
 
-- print, println
+- len,print, println, max,min
 
 ```go
 if condition {
