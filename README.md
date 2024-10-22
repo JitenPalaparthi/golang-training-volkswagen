@@ -73,7 +73,7 @@ go build -ldflags="-s -w"  -o demo  main.go
 
 ## keywords 
 
-- const,func, import, package, var
+- case,const,default,else,fallthrough,func,if,import, package, switch ,var
 
 ## builtin functions
 

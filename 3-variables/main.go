@@ -64,13 +64,42 @@ func main() {
 	// properformat of float
 
 	fmt.Printf("value1:%.2f value2:%.4f\n", value1, value2)
+
+	// shorthand declaration
+	num9 := 12312
+	ok6 := true
+	str4 := "Hello World again!"
+	println(num9, ok6, str4)
+
+	var (
+		a1, b1 = 10, 20
+	)
+	t1 := a1
+	a1 = b1
+	b1 = t1
+	println(a1, b1)
+	var (
+		a2, b2 = 10, 20
+	)
+
+	a2, b2 = b2, a2
+	println(a2, b2)
+
+	var (
+		a3, b3, c3 = 10, 20, 30
+	)
+
+	a3, b3, c3 = b3, c3, a3
+
+	println(a3, b3, c3)
+
 }
 
 /*
 
 numbers:
 	uint,int, uint8,uint16,uint32,uint64, int8,int16,int32,int64,float32,float64
-	uintptr, rune, byte complex64,complex128
+	uintptr, rune, byte, complex64,complex128
 
 boolean:
 	bool
