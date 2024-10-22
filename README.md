@@ -77,7 +77,7 @@ go build -ldflags="-s -w"  -o demo  main.go
 
 ## builtin functions
 
-- len,print, println, max,min
+- cap,len,print,println,make,max,min
 
 ```go
 if condition {
@@ -94,3 +94,6 @@ a2 =2
 a3= $(a,a2)
 println(a3)
 ```
+
+
+https://github.com/JitenPalaparthi/golang-training-volkswagen
