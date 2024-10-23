@@ -71,6 +71,12 @@ GOOS=windows GOARCH=amd64 go build -o build/hello_windows_amd64 main.go
 go build -ldflags="-s -w"  -o demo  main.go
 ```
 
+- To do escape analysis
+
+```
+go build -gcflags="-m" main.go
+```
+
 ## go mod commands
 
 - pulls all required dependencies from remote

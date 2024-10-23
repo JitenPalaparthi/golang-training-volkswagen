@@ -18,7 +18,6 @@ func main() {
 		Result = i1 + i2
 		return Result
 	}
-
 	fmt.Println(fn1(10, 20))
 	fn2 := fn1.Display()
 	fn2()
