@@ -71,6 +71,19 @@ GOOS=windows GOARCH=amd64 go build -o build/hello_windows_amd64 main.go
 go build -ldflags="-s -w"  -o demo  main.go
 ```
 
+## go mod commands
+
+- pulls all required dependencies from remote
+```
+go mod tidy
+```
+
+- go mod vendor : Some projects,it is preferred to download third party code.If not very confident on third party remote location availability
+
+```
+go mod vendor
+```
+
 ## keywords 
 
 - break,case,const,continue, default,else, fallthrough, for,func,if,import,map, package,range,return,struct,switch,type,var
