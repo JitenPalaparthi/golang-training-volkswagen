@@ -21,6 +21,7 @@ func main() {
 	if err != nil {
 		fatal(err.Error())
 	}
+	defer f.Close()
 
 	data := "Hello world"
 
@@ -37,6 +38,7 @@ func main() {
 		println(err.Error())
 		return
 	}
+	defer f1.Close()
 	println("Reading from the file,", FILENAME)
 	bytes, err := io.ReadAll(f1)
 	if err != nil {
@@ -44,8 +46,6 @@ func main() {
 		return
 	}
 	println(string(bytes))
-	f1.Close()
-	f.Close()
 }
 
 func fatal(message string) {
