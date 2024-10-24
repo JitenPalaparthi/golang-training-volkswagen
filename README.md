@@ -92,11 +92,11 @@ go mod vendor
 
 ## keywords 
 
-- break,case,const,continue, default,else, fallthrough, for,func,if,import,map, package,range,return,struct,switch,type,var
+- break,case,const,continue, default,else, fallthrough, for,func,if,import,interface,map, package,range,return,struct,switch,type,var (20 covered out of 25)
 
 ## builtin functions
 
-- append,cap,clear,complex,copy,delete,len,print,println,make,max,min,new,real,imag,
+- append,cap,clear,complex,copy,delete,len,print,println,make,max,min,new,real,imag (15 out of 18 covered)
 
 ```go
 if condition {

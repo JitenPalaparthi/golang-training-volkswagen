@@ -26,6 +26,7 @@ func (c *Calc) Add(nums ...int) ICalc {
 }
 func (c *Calc) Mul(num int) ICalc {
 	c.sum = c.sum * num
+
 	return c
 }
 func (c *Calc) Get() int {
