@@ -1,0 +1,39 @@
+syntax = "proto3";
+import "google/protobuf/empty.proto";
+package helloworld;
+
+option go_package = "grpc-hello-world/helloworld";
+
+service Greeter {
+  // Sends a Hello message
+  rpc SayHello (HelloRequest) returns (HelloReply);
+  rpc GetRandom(google.protobuf.Empty)returns (RandomReply);
+  rpc GetRandomStream(google.protobuf.Empty)returns (stream RandomReply);
+  //rpc Createuser(UserRequest) returns (UserResponse);
+}
+
+// The request message containing the user's name
+message HelloRequest {
+  string name = 1;
+}
+
+
+// The response message containing the greeting
+message HelloReply {
+  string message = 1;
+}
+
+
+message RandomReply {
+  int64 rand = 1;
+}
+
+
+// message UserRequest{
+//   string name=1;
+//   string email=2;
+//   string created_at=3
+// }
+// message UserResponse{
+//   int64 id=1;
+// }
