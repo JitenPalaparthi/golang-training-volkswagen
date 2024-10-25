@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"net/http"
 	"strconv"
+	"time"
 
 	"github.com/gin-gonic/gin"
 )
@@ -36,6 +37,7 @@ func (uh *UserHandler) Create(ctx *gin.Context) {
 		ctx.Abort()
 		return
 	}
+	ChAudit <- models.Audit{User: "system", LastModified: time.Now().Unix(), Data: user.ToString(), Action: "insert"}
 	ctx.String(201, fmt.Sprint("user id:", n))
 }
 
@@ -131,5 +133,37 @@ func (us *UserHandler) DeleteUser(ctx *gin.Context) {
 		return
 	}
 	ctx.String(200, fmt.Sprintf("Records Deleted:%d", r))
+
+}
+
+func (us *UserHandler) UpdateUser(ctx *gin.Context) {
+	id, ok := ctx.Params.Get("id")
+	if !ok {
+		ctx.JSON(http.StatusBadRequest, gin.H{"message": "invalid id"})
+		ctx.Abort()
+		return
+	}
+	id1, err := strconv.Atoi(id)
+	if err != nil {
+		ctx.JSON(http.StatusBadRequest, gin.H{"message": "invalid id"})
+		ctx.Abort()
+		return
+	}
+	user := new(models.User)
+
+	err = ctx.Bind(user)
+	if err != nil {
+		ctx.JSON(http.StatusBadRequest, gin.H{"message": err.Error()})
+		ctx.Abort()
+		return
+	}
+
+	r, err := us.IUser.UpdateUser(id1, *user)
+	if err != nil {
+		ctx.JSON(http.StatusBadRequest, gin.H{"message": err.Error()})
+		ctx.Abort()
+		return
+	}
+	ctx.String(200, fmt.Sprintf("Records Updated:%d", r))
 
 }

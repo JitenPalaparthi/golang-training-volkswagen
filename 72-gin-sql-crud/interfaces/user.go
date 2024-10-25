@@ -8,4 +8,5 @@ type IUser interface {
 	GetAllUsers() ([]models.User, error)
 	GetAllUsersBy(limit, offset int) ([]models.User, error)
 	DeleteUser(id int) (int64, error)
+	UpdateUser(id int, user models.User) (int64, error)
 }

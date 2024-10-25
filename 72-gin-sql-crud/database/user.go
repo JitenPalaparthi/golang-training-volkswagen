@@ -80,3 +80,39 @@ func (ud *UserDB) DeleteUser(id int) (int64, error) {
 	}
 	return r.RowsAffected()
 }
+
+func (ud *UserDB) UpdateUserQ(id int, data map[string]string) (int64, error) {
+	updateQuery := "UPDATE users SET "
+	query := ""
+	for k, v := range data {
+		query += k + "=" + v + ","
+	}
+	updateQuery += query[:len(query)-1] + " WHERE id=?;"
+	r, err := ud.DB.Exec(updateQuery, id)
+	if err != nil {
+		return 0, err
+	}
+	return r.RowsAffected()
+}
+
+func (ud *UserDB) UpdateUser(id int, user models.User) (int64, error) {
+	actualUser, err := ud.GetUser(id)
+
+	if err != nil {
+		return 0, err
+	}
+	if user.Email == "" {
+		user.Email = actualUser.Email
+	}
+	if user.Name == "" {
+		user.Name = actualUser.Name
+	}
+
+	updateQuery := "UPDATE users SET name=?,email=? WHERE id=?;"
+	r, err := ud.DB.Exec(updateQuery, user.Name, user.Email, id)
+	if err != nil {
+		return 0, err
+	}
+	return r.RowsAffected()
+	return 1, nil
+}
