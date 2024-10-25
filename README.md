@@ -92,11 +92,11 @@ go mod vendor
 
 ## keywords 
 
-- break,case,chan,const,continue, default,else, fallthrough, for,func,go,goto,if,import,interface,map, package,range,return,select,struct,switch,type,var (24 covered out of 25)
+- break,case,chan,const,continue, default,defer,else, fallthrough, for,func,go,goto,if,import,interface,map, package,range,return,select,struct,switch,type,var (25 covered out of 25)
 
 ## builtin functions
 
-- append,cap,clear,close,complex,copy,delete,len,print,println,make,max,min,new,real,imag (16 out of 18 covered)
+- append,cap,clear,close,complex,copy,delete,len,print,println,make,max,min,new,real,imag (18 out of 18 covered)
 
 ```go
 if condition {
@@ -112,6 +112,13 @@ a1 =1
 a2 =2 
 a3= $(a,a2)
 println(a3)
+```
+
+- To run mysql database as a docker container
+
+```
+docker run --name mysql -e MYSQL_ROOT_PASSWORD=admin123 -e
+ MYSQL_USER=admin -e MYSQL_PASSWORD=admin -e MYSQL_DATABASE=demodb -p 3306:3306 -d mysql:latest
 ```
 
 
