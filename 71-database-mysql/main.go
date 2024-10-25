@@ -47,6 +47,16 @@ func main() {
 		log.Println(r1.LastInsertId())
 	}
 
+	deleteUser := `DELETE from users where id=?`
+
+	r1, err = db.Exec(deleteUser, 1)
+	if err != nil {
+		log.Println("error in inserting record", err.Error())
+	} else {
+		if n, _ := r1.RowsAffected(); n > 0 {
+			log.Print("Record successfully deleted ")
+		}
+	}
 	seletUsers := `SELECT id,name,email,created_at FROM users`
 	rows, err := db.Query(seletUsers)
 	if err != nil {
