@@ -120,12 +120,12 @@ println(a3)
 docker run --name mysql -e MYSQL_ROOT_PASSWORD=admin123 -e
  MYSQL_USER=admin -e MYSQL_PASSWORD=admin -e MYSQL_DATABASE=demodb -p 3306:3306 -d mysql:latest
 
- - UI for mysql
+ - UI for mysql/postgres
 ```
 docker run -d --name adminer -p 8089:8080 adminer
 ```
 ```
-
+docker run --name adminer3 -p 8090:8080 --link mysql:db -d adminer
 
 
 https://github.com/JitenPalaparthi/golang-training-volkswagen
